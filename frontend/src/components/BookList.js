@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { listBooks } from  './api/books';
+import { listBooks } from '../api/books';
 
 const th = {
     border: '1px solid #dddddd',

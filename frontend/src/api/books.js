@@ -1,7 +1,8 @@
 const BASE = '';
 
 export async function listBooks(signal) {
-  const res = await fetch(`${BASE}/books`, { signal });
+  // Use /api/books so CRA proxy (or a real backend) receives the request
+  const res = await fetch(`${BASE}/api/books`, { signal });
   if (!res.ok) {
     throw new Error(`HTTP ${res.status}`);
   }
@@ -9,15 +10,15 @@ export async function listBooks(signal) {
 }
 
 export async function createBook(payload) {
-    const res = await fetch(`${BASE}/api/books`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-    });
-    if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-    }
-    return res.json();
+  const res = await fetch(`${BASE}/api/books`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}`);
+  }
+  return res.json();
 }
