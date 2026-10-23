@@ -1,0 +1,77 @@
+{
+  "timestamp": "2025-10-31T00:00:00Z",
+  "environment": {
+    "os": "Windows",
+    "shell": "cmd.exe",
+    "node": "unknown - check on resume",
+    "npm": "unknown - check on resume",
+    "java_runtime": "JDK 25 installed",
+    "java_compile_release": 24,
+    "ide_backend": "Spring Tool Suite (STS)",
+    "frontend": "Create React App (react-scripts 5), React 19 present (warnings acceptable)"
+  },
+  "repo_paths": {
+    "root": "c:/Users/kittu/projects/BookCollectionManager",
+    "frontend": "c:/Users/kittu/projects/BookCollectionManager/frontend",
+    "backend": "c:/Users/kittu/projects/BookCollectionManager/backend",
+    "dev_notes": "c:/Users/kittu/projects/BookCollectionManager/DEV-NOTES.md",
+    "copilot_instructions": "c:/Users/kittu/projects/BookCollectionManager/.github/copilot-instructions.md"
+  },
+  "user_preferences": {
+    "manual_only": true,
+    "step_by_step": true,
+    "code_snippets_one_step_at_a_time": true,
+    "no_changes_without_permission": true,
+    "keep_repo_agent_free": true
+  },
+  "current_status": {
+    "phase": "Paused: session complete — resume when user allows edits",
+    "next_step_id": 4,
+    "next_step_label": "Wire BookForm & BookList in App.js (refresh flow)",
+    "next_step_path": "frontend/src/App.js",
+    "next_step_description": "Wire the created BookForm and BookList components and use onCreated() to trigger a refresh; next backend task is to add POST /api/books in-memory."
+  },
+  "last_update_reason": "Session completed: frontend form added, proxy fixed, backend GET available. Waiting for explicit permission to run commands or edit files.",
+  "plan": [
+    { "id": 1, "title": "Create api/books.js", "status": "done" },
+    { "id": 2, "title": "Create BookList component", "status": "done" },
+    { "id": 3, "title": "Create BookForm component", "status": "done" },
+    { "id": 4, "title": "Wire components in App.js", "status": "pending" },
+    { "id": 5, "title": "Backend GET /api/books (hardcoded)", "status": "done" },
+    { "id": 6, "title": "Add CRA dev proxy to http://localhost:8080", "status": "done" },
+    { "id": 7, "title": "Backend POST /api/books (in-memory)", "status": "pending" },
+    { "id": 8, "title": "Add JPA + H2 and CRUD", "status": "pending" },
+    { "id": 9, "title": "Frontend CRUD enhancements + tests", "status": "pending" }
+  ],
+  "backend_notes": {
+    "location_in_sts": "Use custom project location pointing to backend/ folder",
+    "build_tool": "Maven",
+    "compiler_release": 24,
+    "run_in_sts": "Run As > Spring Boot App",
+    "run_cli": "mvnw.cmd spring-boot:run"
+  },
+  "frontend_notes": {
+    "proxy_needed": true,
+    "proxy_value": "http://localhost:8080",
+    "dev_server": "npm start",
+    "api_pattern": "Use relative /api/* paths so CRA proxy forwards to backend"
+  },
+  "resume_instructions_for_assistant": [
+    "Do NOT run commands or edit files unless the user explicitly re-grants permission.",
+    "On resume, verify these files: frontend/src/api/books.js, frontend/src/components/BookList.js, frontend/src/components/BookForm.js, backend/src/main/java/com/BookCollectionManager/controller/BookController.java, frontend/package.json.",
+    "Next suggested actions (require explicit permission): add in-memory POST /api/books to backend, or wire BookForm into App.js and test E2E by starting dev servers.",
+    "When the user grants permission, run backend tests, start backend, start frontend dev server, and perform a POST via the form to verify end-to-end behavior."
+  ],
+  "session_snapshot": {
+    "date": "2025-10-31T00:00:00Z",
+    "changes": [
+      "Created frontend/src/components/BookForm.js (form posts to /api/books and calls onCreated()).",
+      "Fixed import path in frontend/src/components/BookList.js to ../api/books.",
+      "Updated frontend/src/api/books.js to use /api/books for listBooks and createBook.",
+      "Updated frontend/package.json proxy to http://localhost:8080.",
+      "Verified frontend production build (npm run build) and backend tests (mvnw.cmd test).",
+      "Performed E2E proxy check: GET http://localhost:3000/api/books returned hardcoded books from backend."
+    ],
+    "permissions": "User revoked edit/run rights during session. Assistant must not run commands or modify files without explicit permission."
+  }
+}
